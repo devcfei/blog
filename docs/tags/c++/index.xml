@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>c&#43;&#43; on devcfei</title>
+    <link>https://devcfei.github.io/tags/c&#43;&#43;/</link>
+    <description>Recent content in c&#43;&#43; on devcfei</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 15 May 2021 15:10:51 +0800</lastBuildDate><atom:link href="https://devcfei.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C&#43;&#43; member function pointer and template</title>
+      <link>https://devcfei.github.io/blog/programming/cpp-member-function-pointer-and-template/</link>
+      <pubDate>Sat, 15 May 2021 15:10:51 +0800</pubDate>
+      
+      <guid>https://devcfei.github.io/blog/programming/cpp-member-function-pointer-and-template/</guid>
+      <description>An example show member function pointer and template
+Source template &amp;lt;typename T&amp;gt; class CFooImpl { protected: void callfoo() { T* t = static_cast&amp;lt;T*&amp;gt;(this); t-&amp;gt;foo(); } void callfoo(void(T::* f)()) { // how to call f ??  } void callfoo(T&amp;amp; r, void(T::* f)()) { (r.*f)(); } void callfoo(T* p, void(T::* f)()) { (p-&amp;gt;*f)(); } }; class CFoo :public CFooImpl&amp;lt;CFoo&amp;gt; { public: void foo() { printf(&amp;#34;foo!\n&amp;#34;); } void test() { auto pf = &amp;amp;CFoo::foo; callfoo(); callfoo(*this, pf); callfoo(this, pf); } }; int main() { CFoo a; a.</description>
+    </item>
+    
+  </channel>
+</rss>

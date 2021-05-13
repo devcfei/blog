@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang='en' dir='auto'><head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Introduction to setup GerritReview on http://gerrit.example.com
+Preparation Gerrit requires JDK
+sudo apt install openjdk-11-jre-headless Download the gerrit-version.war file, for example the folder /home/gerrit/app/
+Initial Site To initial the gerrit site, the site/etc/gerrit.config will be generated
+cd /home/gerrit/app/ java -jar gerrit-3.1.4.war init -d site  Check /home/gerrit/app/site/etc/gerrit.config as following  [gerrit] basePath = git canonicalWebUrl = http://gerrit.example.com serverId = e52b7bb9-4814-4a7b-9534-a1af694d91fd [container] javaOptions = &#34;-Dflogger.backend_factory=com.google.common.flogger.backend.log4j.Log4jBackendFactory#getInstance&#34; javaOptions = &#34;-Dflogger.logging_context=com.google.gerrit.server.logging.LoggingContext#getInstance&#34; user = gerrit javaHome = /usr/lib/jvm/java-11-openjdk-amd64 [index] type = lucene [auth] type = HTTP [receive] enableSignedPush = true [sendemail] smtpServer = localhost [sshd] listenAddress = *:29418 [httpd] listenUrl = http://*:8081/ [cache] directory = cache Initial Gerrit Account of Admin Create the first account as admin'>
+<meta name='theme-color' content='#ffcd00'>
+
+<meta property='og:title' content='Install GerritReview with Own Hostname • Chao Fei'>
+<meta property='og:description' content='Introduction to setup GerritReview on http://gerrit.example.com
+Preparation Gerrit requires JDK
+sudo apt install openjdk-11-jre-headless Download the gerrit-version.war file, for example the folder /home/gerrit/app/
+Initial Site To initial the gerrit site, the site/etc/gerrit.config will be generated
+cd /home/gerrit/app/ java -jar gerrit-3.1.4.war init -d site  Check /home/gerrit/app/site/etc/gerrit.config as following  [gerrit] basePath = git canonicalWebUrl = http://gerrit.example.com serverId = e52b7bb9-4814-4a7b-9534-a1af694d91fd [container] javaOptions = &#34;-Dflogger.backend_factory=com.google.common.flogger.backend.log4j.Log4jBackendFactory#getInstance&#34; javaOptions = &#34;-Dflogger.logging_context=com.google.gerrit.server.logging.LoggingContext#getInstance&#34; user = gerrit javaHome = /usr/lib/jvm/java-11-openjdk-amd64 [index] type = lucene [auth] type = HTTP [receive] enableSignedPush = true [sendemail] smtpServer = localhost [sshd] listenAddress = *:29418 [httpd] listenUrl = http://*:8081/ [cache] directory = cache Initial Gerrit Account of Admin Create the first account as admin'>
+<meta property='og:url' content='https://devcfei.github.io/blog/gerrit/install-gerrit-on-own-hostname/'>
+<meta property='og:site_name' content='devcfei'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/9f431005aba9fb7ea5bb2647f8f9216f?s=256'><meta property='article:section' content='blog'><meta property='article:tag' content='gerrit'><meta property='article:tag' content='git'><meta property='article:published_time' content='2021-05-14T09:50:25&#43;08:00'/><meta property='article:modified_time' content='2021-05-14T09:50:25&#43;08:00'/><meta name='twitter:card' content='summary'>
+
+<meta name="generator" content="Hugo 0.80.0" />
+
+  <title>Install GerritReview with Own Hostname • Chao Fei</title>
+  <link rel='canonical' href='https://devcfei.github.io/blog/gerrit/install-gerrit-on-own-hostname/'>
+  
+  
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='/assets/css/main.ab98e12b.css'><link rel='stylesheet' href='/css/custom.css'><style>
+:root{--color-accent:#ffcd00;}
+</style>
+
+  
+
+</head>
+<body class='page type-blog has-sidebar'>
+
+  <div class='site'><div id='sidebar' class='sidebar'>
+  <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
+
+  <div class='container'><section class='widget widget-about sep-after'>
+  <header>
+    
+    <div class='logo'>
+      <a href='/'>
+        <img src='/images/logo.png'>
+      </a>
+    </div>
+    
+    <h2 class='title site-title '>
+      <a href='/'>
+      devcfei
+      </a>
+    </h2>
+    <div class='desc'>
+    devcfei&#39;s blog
+    </div>
+  </header>
+
+</section>
+<section class='widget widget-search sep-after'>
+  <header>
+    <h4 class='title widget-title'>Search</h4>
+  </header>
+
+  <form action='/search' id='search-form' class='search-form'>
+    <label>
+      <span class='screen-reader-text'>Search</span>
+      <input id='search-term' class='search-term' type='search' name='q' placeholder='Search&hellip;'>
+    </label></form>
+
+</section>
+<section class='widget widget-sidebar_menu sep-after'><nav id='sidebar-menu' class='menu sidebar-menu' aria-label='Sidebar Menu'>
+    <div class='container'>
+      <ul><li class='item'>
+  <a href='/'>Home</a></li><li class='item'>
+  <a href='/blog/'>Blog</a></li><li class='item'>
+  <a href='/docs/'>Docs</a></li></ul>
+    </div>
+  </nav>
+
+</section><section class='widget widget-taxonomy_cloud sep-after'>
+  <header>
+    <h4 class='title widget-title'>Tags</h4>
+  </header>
+
+  <div class='container list-container'>
+  <ul class='list taxonomy-cloud'><li>
+        <a href='/tags/apache2/' style='font-size:2em'>apache2</a>
+      </li><li>
+        <a href='/tags/c/' style='font-size:1.2em'>c</a>
+      </li><li>
+        <a href='/tags/c&#43;&#43;/' style='font-size:1em'>c&#43;&#43;</a>
+      </li><li>
+        <a href='/tags/elf/' style='font-size:1em'>elf</a>
+      </li><li>
+        <a href='/tags/gerrit/' style='font-size:1.2em'>gerrit</a>
+      </li><li>
+        <a href='/tags/git/' style='font-size:1.8em'>git</a>
+      </li><li>
+        <a href='/tags/gitbucket/' style='font-size:1.2em'>gitbucket</a>
+      </li><li>
+        <a href='/tags/linux/' style='font-size:1.2em'>linux</a>
+      </li><li>
+        <a href='/tags/pc/' style='font-size:1.4em'>pc</a>
+      </li><li>
+        <a href='/tags/x86/' style='font-size:1.4em'>x86</a>
+      </li></ul>
+</div>
+
+
+</section>
+</div>
+
+  <div class='sidebar-overlay'></div>
+</div><div class='main'><nav id='main-menu' class='menu main-menu' aria-label='Main Menu'>
+  <div class='container'>
+    <a class='screen-reader-text' href='#content'>Skip to Content</a>
+
+<button id='sidebar-toggler' class='sidebar-toggler' aria-controls='sidebar'>
+  <span class='screen-reader-text'>Toggle Sidebar</span>
+  <span class='open'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <line x1="3" y1="12" x2="21" y2="12" />
+  <line x1="3" y1="6" x2="21" y2="6" />
+  <line x1="3" y1="18" x2="21" y2="18" />
+
+</svg>
+</span>
+  <span class='close'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+
+</svg>
+</span>
+</button>
+    <ul><li class='item'>
+        <a href='/'>Home</a>
+      </li><li class='item'>
+        <a href='/blog/'>Blog</a>
+      </li><li class='item'>
+        <a href='/docs/'>Docs</a>
+      </li><li class='item'>
+        <a href='/about/'>About</a>
+      </li><li class='item'>
+        <a href='https://github.com/devcfei/devcfei.github.io'>Github</a>
+      </li></ul>
+  </div>
+</nav><div class='header-widgets'>
+        <div class='container'>
+    
+    <style>.widget-breadcrumbs li:after{content:'\2f '}</style>
+  <section class='widget widget-breadcrumbs sep-after'>
+    <nav id='breadcrumbs'>
+      <ol><li><a href='/'>Home</a></li><li><a href='/blog/'>Blog</a></li><li><span>Install GerritReview with Own Hostname</span></li></ol>
+    </nav>
+  </section></div>
+      </div>
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>devcfei</p><p class='desc site-desc'>devcfei&#39;s blog</p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>Install GerritReview with Own Hostname</h1>
+      
+
+    </div>
+    <div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2021-05-14T09:50:25&#43;08:00'>2021, May 14</time>
+</span>
+
+  <span class='byline'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <path d="M21,21V20c0-2.76-4-5-9-5s-9,2.24-9,5v1"/>
+  <path d="M16,6.37A4,4,0,1,1,12.63,3,4,4,0,0,1,16,6.37Z"/>
+
+</svg>
+<span class='screen-reader-text'> by </span><a href='/authors/devcfei'>Chao Fei</a></span>
+  
+<span class='reading-time'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+
+</svg>
+One min read
+</span>
+
+
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+
+  <div class='container entry-content'>
+  <p>Introduction to setup GerritReview on <a href="http://gerrit.example.com">http://gerrit.example.com</a></p>
+<h2 id="preparation">Preparation</h2>
+<p>Gerrit requires JDK</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install openjdk-11-jre-headless
+</code></pre></div><p>Download the gerrit-<em>version</em>.war file, for example the folder <code>/home/gerrit/app/</code></p>
+<h3 id="initial-site">Initial Site</h3>
+<p>To initial the gerrit site, the <code>site/etc/gerrit.config</code> will be generated</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#111">cd</span> /home/gerrit/app/
+java -jar gerrit-3.1.4.war init -d site
+</code></pre></div><ul>
+<li>Check <code>/home/gerrit/app/site/etc/gerrit.config</code> as following</li>
+</ul>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#00a8c8">[gerrit]</span>
+        <span style="color:#75af00">basePath</span> <span style="color:#f92672">=</span> <span style="color:#d88200">git
+</span><span style="color:#d88200">        canonicalWebUrl = http://gerrit.example.com
+</span><span style="color:#d88200">        serverId = e52b7bb9-4814-4a7b-9534-a1af694d91fd</span>
+<span style="color:#00a8c8">[container]</span>
+        <span style="color:#75af00">javaOptions</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;-Dflogger.backend_factory=com.google.common.flogger.backend.log4j.Log4jBackendFactory#getInstance&#34;
+</span><span style="color:#d88200">        javaOptions = &#34;-Dflogger.logging_context=com.google.gerrit.server.logging.LoggingContext#getInstance&#34;
+</span><span style="color:#d88200">        user = gerrit
+</span><span style="color:#d88200">        javaHome = /usr/lib/jvm/java-11-openjdk-amd64</span>
+<span style="color:#00a8c8">[index]</span>
+        <span style="color:#75af00">type</span> <span style="color:#f92672">=</span> <span style="color:#d88200">lucene</span>
+<span style="color:#00a8c8">[auth]</span>
+        <span style="color:#75af00">type</span> <span style="color:#f92672">=</span> <span style="color:#d88200">HTTP</span>
+<span style="color:#00a8c8">[receive]</span>
+        <span style="color:#75af00">enableSignedPush</span> <span style="color:#f92672">=</span> <span style="color:#d88200">true</span>
+<span style="color:#00a8c8">[sendemail]</span>
+        <span style="color:#75af00">smtpServer</span> <span style="color:#f92672">=</span> <span style="color:#d88200">localhost</span>
+<span style="color:#00a8c8">[sshd]</span>
+        <span style="color:#75af00">listenAddress</span> <span style="color:#f92672">=</span> <span style="color:#d88200">*:29418</span>
+<span style="color:#00a8c8">[httpd]</span>
+        <span style="color:#75af00">listenUrl</span> <span style="color:#f92672">=</span> <span style="color:#d88200">http://*:8081/</span>
+<span style="color:#00a8c8">[cache]</span>
+        <span style="color:#75af00">directory</span> <span style="color:#f92672">=</span> <span style="color:#d88200">cache</span>
+
+</code></pre></div><h3 id="initial-gerrit-account-of-admin">Initial Gerrit Account of Admin</h3>
+<p>Create the first account as admin</p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#111">cd</span> /home/gerrit/app/
+htpasswd -c PASSWORD admin
+</code></pre></div><h3 id="apache2-configuation">Apache2 Configuation</h3>
+<p>Edit a <code>gerrit.conf</code> in <code>/etc/apache2/sites-available</code></p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim /etc/apache2/sites-available/gerrit.conf
+</code></pre></div><p>Example:</p>
+<pre><code>&lt;virtualhost *:80&gt;
+
+    servername gerrit.example.com
+    AllowEncodedSlashes On
+    ProxyPreserveHost On
+    ProxyPass / http://localhost:8081/ nocanon
+    ProxyPassReverse / http://localhost:8081/ nocanon
+    ProxyPassReverseCookiePath / /
+    
+    
+    &lt;Proxy *&gt;
+        Order deny,allow
+        Allow from all
+    &lt;/Proxy&gt;
+    
+    &lt;Location /login/&gt;
+        AuthType Basic
+        AuthName &quot;Gerrit Code Review&quot;
+        Require valid-user
+        AuthBasicProvider file
+        AuthUserFile /home/gerrit/app/PASSWORD
+    &lt;/Location&gt;
+
+
+&lt;/virtualhost&gt;
+
+</code></pre><h3 id="finalize-installation">Finalize Installation</h3>
+<ol>
+<li>Restart the GerritReview webserver</li>
+</ol>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#111">cd</span> /home/gerrit/app/
+./site/bin/gerrit.sh restart
+</code></pre></div><ol start="2">
+<li>Create a new user account</li>
+</ol>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">htpasswd -m PASSWORD user
+</code></pre></div><ol start="3">
+<li>Reload Apache2 service</li>
+</ol>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl reload apache2
+</code></pre></div>
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'><div class='categories'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+    <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+
+</svg>
+<span class='screen-reader-text'>Categories: </span><a class='category' href='/categories/technical/'>technical</a>, <a class='category' href='/categories/devops/'>devops</a></div>
+<div class='tags'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+
+</svg>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/gerrit/'>gerrit</a>, <a class='tag' href='/tags/git/'>git</a></div>
+
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/blog/linux/linux-execute-command-without-login/'>
+        <span aria-hidden='true'><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+
+</svg>
+ Previous</span>
+        <span class='screen-reader-text'>Previous post: </span>Execute remote bash command without login</a>
+    </div><div class='next-entry sep-before'>
+      <a href='/blog/apache2/multiple-sites-on-single-hostname/'>
+        <span class='screen-reader-text'>Next post: </span>Multiple Sites on Single Hostname<span aria-hidden='true'>Next <svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'><section class='widget widget-social_menu sep-after'><nav aria-label='Social Menu'>
+    <ul><li>
+        <a href='https://github.com/devcfei' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    
+      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+
+</svg>
+</a>
+      </li><li>
+        <a href='mailto:devcfei@outlook.com' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+</a>
+      </li><li>
+        <a href='https://linkedin.com/in/chao-fei-aa987061' target='_blank' rel='noopener me'>
+          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</section><div class='copyright'>
+  <p> &copy; 2021 devcfei </p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><script>window.__assets_js_src="/assets/js/"</script>
+
+<script src='/assets/js/main.c3bcf2df.js'></script><script src='/js/custom.js'></script>
+
+</body>
+
+</html>
+

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://devcfei.github.io/</loc>
+    <lastmod>2021-05-15T20:58:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/blog/</loc>
+    <lastmod>2021-05-15T20:58:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/docs/</loc>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/about/</loc>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/authors/</loc>
+    <lastmod>2021-05-15T20:58:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/tags/c/</loc>
+    <lastmod>2021-05-15T20:58:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/categories/</loc>
+    <lastmod>2021-05-15T20:58:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/authors/devcfei/</loc>
+    <lastmod>2021-05-15T20:58:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/blog/programming/hook-malloc/</loc>
+    <lastmod>2021-05-15T20:58:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/tags/linux/</loc>
+    <lastmod>2021-05-15T20:58:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/categories/programming/</loc>
+    <lastmod>2021-05-15T20:58:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/tags/</loc>
+    <lastmod>2021-05-15T20:58:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/blog/knowledge/elf/</loc>
+    <lastmod>2021-05-15T20:32:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/tags/elf/</loc>
+    <lastmod>2021-05-15T20:32:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/categories/knowledge/</loc>
+    <lastmod>2021-05-15T20:32:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/blog/knowledge/display-vesa/</loc>
+    <lastmod>2021-05-15T20:27:19+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/tags/pc/</loc>
+    <lastmod>2021-05-15T20:27:19+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/tags/x86/</loc>
+    <lastmod>2021-05-15T20:27:19+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/blog/knowledge/disk/</loc>
+    <lastmod>2021-05-15T20:24:40+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/blog/knowledge/x86-pc-boot-bios/</loc>
+    <lastmod>2021-05-15T20:02:03+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/blog/programming/c-string-reverse-words/</loc>
+    <lastmod>2021-05-15T15:20:15+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/tags/c&#43;&#43;/</loc>
+    <lastmod>2021-05-15T15:10:51+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/blog/programming/cpp-member-function-pointer-and-template/</loc>
+    <lastmod>2021-05-15T15:10:51+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/categories/devops/</loc>
+    <lastmod>2021-05-14T10:17:38+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/tags/git/</loc>
+    <lastmod>2021-05-14T10:17:38+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/tags/gitbucket/</loc>
+    <lastmod>2021-05-14T10:17:38+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/blog/gitbucket/install-gitbucket/</loc>
+    <lastmod>2021-05-14T10:17:38+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/categories/technical/</loc>
+    <lastmod>2021-05-14T10:17:38+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/categories/tool/</loc>
+    <lastmod>2021-05-14T10:17:38+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/tags/apache2/</loc>
+    <lastmod>2021-05-14T10:11:16+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/tags/gerrit/</loc>
+    <lastmod>2021-05-14T10:11:16+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/blog/apache2/multiple-sites-on-single-hostname/</loc>
+    <lastmod>2021-05-14T10:11:16+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/blog/gerrit/install-gerrit-on-own-hostname/</loc>
+    <lastmod>2021-05-14T09:50:25+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/blog/linux/linux-execute-command-without-login/</loc>
+    <lastmod>2021-05-14T09:43:24+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/blog/apache2/multiple-sites-on-multiple-hostnames/</loc>
+    <lastmod>2021-05-14T09:36:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/blog/apache2/multiple-sites-on-multiple-ports/</loc>
+    <lastmod>2021-05-14T09:29:53+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/blog/apache2/disable-ip-access/</loc>
+    <lastmod>2021-05-14T09:10:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/blog/apache2/configuration-basic/</loc>
+    <lastmod>2021-05-14T09:06:13+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/blog/apache2/install/</loc>
+    <lastmod>2021-05-14T08:28:46+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/blog/git/how-to-track-other-repo-branch/</loc>
+    <lastmod>2021-05-13T15:45:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/blog/git/how-to-use-submodule/</loc>
+    <lastmod>2021-05-13T14:45:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/blog/git/rebase-merge/</loc>
+    <lastmod>2021-05-13T11:45:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/blog/welcome/</loc>
+    <lastmod>2021-05-12T14:45:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/tags/config/</loc>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/tags/og/</loc>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/page/</loc>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/search/</loc>
+  </url>
+  
+  <url>
+    <loc>https://devcfei.github.io/series/</loc>
+  </url>
+  
+</urlset>

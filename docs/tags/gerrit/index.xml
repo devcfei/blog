@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gerrit on devcfei</title>
+    <link>https://devcfei.github.io/tags/gerrit/</link>
+    <description>Recent content in gerrit on devcfei</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 14 May 2021 10:11:16 +0800</lastBuildDate><atom:link href="https://devcfei.github.io/tags/gerrit/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Multiple Sites on Single Hostname</title>
+      <link>https://devcfei.github.io/blog/apache2/multiple-sites-on-single-hostname/</link>
+      <pubDate>Fri, 14 May 2021 10:11:16 +0800</pubDate>
+      
+      <guid>https://devcfei.github.io/blog/apache2/multiple-sites-on-single-hostname/</guid>
+      <description>Example to setup 2 sites on Single Host
+ http://example.com/gitbucket http://example.com/gerrit  Setup GerritReview  Edit a gerrit.conf in /etc/apache2/sites-available  vim /etc/apache2/sites-available/gerrit.conf Example:
+&amp;lt;virtualhost *:80&amp;gt; servername example.com ProxyPreserveHost On ProxyPass /gerrit http://localhost:8082/gerrit ProxyPassReverse /gerrit http://localhost:8082/gerrit ProxyPassReverseCookiePath /gerrit /gerrit &amp;lt;Proxy *&amp;gt; Order deny,allow Allow from all &amp;lt;/Proxy&amp;gt; &amp;lt;Location /gerrit/login/&amp;gt; AuthType Basic AuthName &amp;quot;Gerrit Code Review&amp;quot; Require valid-user AuthBasicProvider file AuthUserFile /mnt/a/app/gerrit/pwd &amp;lt;/Location&amp;gt; &amp;lt;/virtualhost&amp;gt; Configurate the Gerrit Review check gerrit/etc/gerrit.config  [gerrit] basePath = /mnt/a/repos canonicalWebUrl = http://example.</description>
+    </item>
+    
+    <item>
+      <title>Install GerritReview with Own Hostname</title>
+      <link>https://devcfei.github.io/blog/gerrit/install-gerrit-on-own-hostname/</link>
+      <pubDate>Fri, 14 May 2021 09:50:25 +0800</pubDate>
+      
+      <guid>https://devcfei.github.io/blog/gerrit/install-gerrit-on-own-hostname/</guid>
+      <description>Introduction to setup GerritReview on http://gerrit.example.com
+Preparation Gerrit requires JDK
+sudo apt install openjdk-11-jre-headless Download the gerrit-version.war file, for example the folder /home/gerrit/app/
+Initial Site To initial the gerrit site, the site/etc/gerrit.config will be generated
+cd /home/gerrit/app/ java -jar gerrit-3.1.4.war init -d site  Check /home/gerrit/app/site/etc/gerrit.config as following  [gerrit] basePath = git canonicalWebUrl = http://gerrit.example.com serverId = e52b7bb9-4814-4a7b-9534-a1af694d91fd [container] javaOptions = &amp;#34;-Dflogger.backend_factory=com.google.common.flogger.backend.log4j.Log4jBackendFactory#getInstance&amp;#34; javaOptions = &amp;#34;-Dflogger.logging_context=com.google.gerrit.server.logging.LoggingContext#getInstance&amp;#34; user = gerrit javaHome = /usr/lib/jvm/java-11-openjdk-amd64 [index] type = lucene [auth] type = HTTP [receive] enableSignedPush = true [sendemail] smtpServer = localhost [sshd] listenAddress = *:29418 [httpd] listenUrl = http://*:8081/ [cache] directory = cache Initial Gerrit Account of Admin Create the first account as admin</description>
+    </item>
+    
+  </channel>
+</rss>

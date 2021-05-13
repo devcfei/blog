@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on devcfei</title>
+    <link>https://devcfei.github.io/tags/linux/</link>
+    <description>Recent content in linux on devcfei</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 15 May 2021 20:48:30 +0800</lastBuildDate><atom:link href="https://devcfei.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hook malloc</title>
+      <link>https://devcfei.github.io/blog/programming/hook-malloc/</link>
+      <pubDate>Sat, 15 May 2021 20:48:30 +0800</pubDate>
+      
+      <guid>https://devcfei.github.io/blog/programming/hook-malloc/</guid>
+      <description>An example to hook malloc
+Source /* * gcc -o hook main.c * ./hook */ #include &amp;lt;stdlib.h&amp;gt;#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;string.h&amp;gt;#include &amp;lt;stdbool.h&amp;gt;#include &amp;lt;sys/mman.h&amp;gt; typedef int (*foo_func)(int a); foo_func ptr_foo = NULL; int foo(int a) { return a + 2; } int foo_hook(int a) { printf(&amp;#34;foo_hook - %d\n&amp;#34;, a); a += 2; return ptr_foo(a); } #pragma pack(push, 1) struct thunk { char e9; unsigned int offset; }; #pragma pack(pop)  struct thunk thunk_foo; void test_malloc_hook(); int main() { int ret; int foo_size; printf(&amp;#34;hook!</description>
+    </item>
+    
+    <item>
+      <title>Execute remote bash command without login</title>
+      <link>https://devcfei.github.io/blog/linux/linux-execute-command-without-login/</link>
+      <pubDate>Fri, 14 May 2021 09:43:24 +0800</pubDate>
+      
+      <guid>https://devcfei.github.io/blog/linux/linux-execute-command-without-login/</guid>
+      <description>Example 1 List at /
+user password 123
+sshpass -p 123 ssh user@host &amp;#34;ls -l /&amp;#34; Example 2 Copy folder to host
+sshpass -p 123 scp -r ~/data user@host:~/data </description>
+    </item>
+    
+  </channel>
+</rss>

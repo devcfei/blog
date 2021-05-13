@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>c on devcfei</title>
+    <link>https://devcfei.github.io/tags/c/</link>
+    <description>Recent content in c on devcfei</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 15 May 2021 20:48:30 +0800</lastBuildDate><atom:link href="https://devcfei.github.io/tags/c/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hook malloc</title>
+      <link>https://devcfei.github.io/blog/programming/hook-malloc/</link>
+      <pubDate>Sat, 15 May 2021 20:48:30 +0800</pubDate>
+      
+      <guid>https://devcfei.github.io/blog/programming/hook-malloc/</guid>
+      <description>An example to hook malloc
+Source /* * gcc -o hook main.c * ./hook */ #include &amp;lt;stdlib.h&amp;gt;#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;string.h&amp;gt;#include &amp;lt;stdbool.h&amp;gt;#include &amp;lt;sys/mman.h&amp;gt; typedef int (*foo_func)(int a); foo_func ptr_foo = NULL; int foo(int a) { return a + 2; } int foo_hook(int a) { printf(&amp;#34;foo_hook - %d\n&amp;#34;, a); a += 2; return ptr_foo(a); } #pragma pack(push, 1) struct thunk { char e9; unsigned int offset; }; #pragma pack(pop)  struct thunk thunk_foo; void test_malloc_hook(); int main() { int ret; int foo_size; printf(&amp;#34;hook!</description>
+    </item>
+    
+    <item>
+      <title>Reverse words in a string by C</title>
+      <link>https://devcfei.github.io/blog/programming/c-string-reverse-words/</link>
+      <pubDate>Sat, 15 May 2021 15:20:15 +0800</pubDate>
+      
+      <guid>https://devcfei.github.io/blog/programming/c-string-reverse-words/</guid>
+      <description>An example to reverse the word in a string.
+Source #include &amp;lt;stdio.h&amp;gt; char* strrevw(char* string){ char* s=string; char* e=s; char ch; char *ws,*we; while(1){ if(*e==&amp;#39; &amp;#39; || *e==&amp;#39;\0&amp;#39;){ ws=s; we=e-1; while(ws&amp;lt;we){ ch=*ws; *ws++=*we; *we--=ch; } if(*e==&amp;#39;\0&amp;#39;) break; s=e; while(*++s==&amp;#39; &amp;#39;); } e++; } return string; } int main(){ char a[]=&amp;#34;123 1234 12345&amp;#34;; printf(&amp;#34;%s\n&amp;#34;,a); printf(&amp;#34;%s\n&amp;#34;,strrevw(a)); return 0; } </description>
+    </item>
+    
+  </channel>
+</rss>

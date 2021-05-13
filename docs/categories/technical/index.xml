@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>technical on devcfei</title>
+    <link>https://devcfei.github.io/categories/technical/</link>
+    <description>Recent content in technical on devcfei</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 14 May 2021 10:17:38 +0800</lastBuildDate><atom:link href="https://devcfei.github.io/categories/technical/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Install Gitbucket with Own Hostname</title>
+      <link>https://devcfei.github.io/blog/gitbucket/install-gitbucket/</link>
+      <pubDate>Fri, 14 May 2021 10:17:38 +0800</pubDate>
+      
+      <guid>https://devcfei.github.io/blog/gitbucket/install-gitbucket/</guid>
+      <description>Preparation Download the gitbucket.war file, for example to /home/gitbucket/app/
+Start gitbucket gitbucket.example.com cd /home/gitbucket/app/ nohup java -jar gitbucket.war --port=8080 --hostname=gitbucket.example.com --gitbucket.home=/home/gitbucket/repos &amp;gt; /home/gitbucket/log&amp;gt;&amp;amp;1 &amp;amp; Enable apache2 Proxyp Reserve Host Edit a gitbucket.conf in /etc/apache2/sites-available
+vim /etc/apache2/sites-available/gitbucket.conf Example:
+&amp;lt;VirtualHost *:80&amp;gt; ServerName gitbucket.example.com # proxy proxypreservehost on proxypass / http://localhost:8080/ proxypassreverse / http://localhost:8080/ proxypassreversecookiepath / / ErrorLog ${APACHE_LOG_DIR}/error.log CustomLog ${APACHE_LOG_DIR}/access.log combined &amp;lt;/VirtualHost&amp;gt; Reload Apache2 service systemctl reload apache2 </description>
+    </item>
+    
+    <item>
+      <title>Install GerritReview with Own Hostname</title>
+      <link>https://devcfei.github.io/blog/gerrit/install-gerrit-on-own-hostname/</link>
+      <pubDate>Fri, 14 May 2021 09:50:25 +0800</pubDate>
+      
+      <guid>https://devcfei.github.io/blog/gerrit/install-gerrit-on-own-hostname/</guid>
+      <description>Introduction to setup GerritReview on http://gerrit.example.com
+Preparation Gerrit requires JDK
+sudo apt install openjdk-11-jre-headless Download the gerrit-version.war file, for example the folder /home/gerrit/app/
+Initial Site To initial the gerrit site, the site/etc/gerrit.config will be generated
+cd /home/gerrit/app/ java -jar gerrit-3.1.4.war init -d site  Check /home/gerrit/app/site/etc/gerrit.config as following  [gerrit] basePath = git canonicalWebUrl = http://gerrit.example.com serverId = e52b7bb9-4814-4a7b-9534-a1af694d91fd [container] javaOptions = &amp;#34;-Dflogger.backend_factory=com.google.common.flogger.backend.log4j.Log4jBackendFactory#getInstance&amp;#34; javaOptions = &amp;#34;-Dflogger.logging_context=com.google.gerrit.server.logging.LoggingContext#getInstance&amp;#34; user = gerrit javaHome = /usr/lib/jvm/java-11-openjdk-amd64 [index] type = lucene [auth] type = HTTP [receive] enableSignedPush = true [sendemail] smtpServer = localhost [sshd] listenAddress = *:29418 [httpd] listenUrl = http://*:8081/ [cache] directory = cache Initial Gerrit Account of Admin Create the first account as admin</description>
+    </item>
+    
+    <item>
+      <title>Execute remote bash command without login</title>
+      <link>https://devcfei.github.io/blog/linux/linux-execute-command-without-login/</link>
+      <pubDate>Fri, 14 May 2021 09:43:24 +0800</pubDate>
+      
+      <guid>https://devcfei.github.io/blog/linux/linux-execute-command-without-login/</guid>
+      <description>Example 1 List at /
+user password 123
+sshpass -p 123 ssh user@host &amp;#34;ls -l /&amp;#34; Example 2 Copy folder to host
+sshpass -p 123 scp -r ~/data user@host:~/data </description>
+    </item>
+    
+    <item>
+      <title>How to track other repo&#39;s branch</title>
+      <link>https://devcfei.github.io/blog/git/how-to-track-other-repo-branch/</link>
+      <pubDate>Thu, 13 May 2021 15:45:21 +0800</pubDate>
+      
+      <guid>https://devcfei.github.io/blog/git/how-to-track-other-repo-branch/</guid>
+      <description>Initialize own branch to track another branch of another remote git init git checkout --orphan upstream-xxx-master git remote add upstream-xxx https://github.com/other/xxx.git git fetch upstream-xxx git merge upstream-xxx/master Push the own branch to own repo git remote add origin https://github.com/self/yyy.git git push --set-upstream origin upstream-xxx-master Rebase the tracking branch git checkout upstream-xxx-master git fetch upstream-xxx git rebase upstream-xxx/master </description>
+    </item>
+    
+    <item>
+      <title>How to use submodule</title>
+      <link>https://devcfei.github.io/blog/git/how-to-use-submodule/</link>
+      <pubDate>Thu, 13 May 2021 14:45:21 +0800</pubDate>
+      
+      <guid>https://devcfei.github.io/blog/git/how-to-use-submodule/</guid>
+      <description>Add new submodule git submodule add -b dev https://github.com/devcfei/submodule1.git submodule1 git submodule add -b dev https://github.com/devcfei/submodule2.git submodule2 Delete submodules rm -rf &amp;lt;submodule_path&amp;gt; vi .gitmodules vi .git/config rm .git/module/&amp;lt;submodule&amp;gt; git rm --cached &amp;lt;submodule&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>Rebase and Merge</title>
+      <link>https://devcfei.github.io/blog/git/rebase-merge/</link>
+      <pubDate>Thu, 13 May 2021 11:45:21 +0800</pubDate>
+      
+      <guid>https://devcfei.github.io/blog/git/rebase-merge/</guid>
+      <description>Initial branchs After Rebase After Merge </description>
+    </item>
+    
+  </channel>
+</rss>

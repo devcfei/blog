@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>apache2 on devcfei</title>
+    <link>https://devcfei.github.io/tags/apache2/</link>
+    <description>Recent content in apache2 on devcfei</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 14 May 2021 10:11:16 +0800</lastBuildDate><atom:link href="https://devcfei.github.io/tags/apache2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Multiple Sites on Single Hostname</title>
+      <link>https://devcfei.github.io/blog/apache2/multiple-sites-on-single-hostname/</link>
+      <pubDate>Fri, 14 May 2021 10:11:16 +0800</pubDate>
+      
+      <guid>https://devcfei.github.io/blog/apache2/multiple-sites-on-single-hostname/</guid>
+      <description>Example to setup 2 sites on Single Host
+ http://example.com/gitbucket http://example.com/gerrit  Setup GerritReview  Edit a gerrit.conf in /etc/apache2/sites-available  vim /etc/apache2/sites-available/gerrit.conf Example:
+&amp;lt;virtualhost *:80&amp;gt; servername example.com ProxyPreserveHost On ProxyPass /gerrit http://localhost:8082/gerrit ProxyPassReverse /gerrit http://localhost:8082/gerrit ProxyPassReverseCookiePath /gerrit /gerrit &amp;lt;Proxy *&amp;gt; Order deny,allow Allow from all &amp;lt;/Proxy&amp;gt; &amp;lt;Location /gerrit/login/&amp;gt; AuthType Basic AuthName &amp;quot;Gerrit Code Review&amp;quot; Require valid-user AuthBasicProvider file AuthUserFile /mnt/a/app/gerrit/pwd &amp;lt;/Location&amp;gt; &amp;lt;/virtualhost&amp;gt; Configurate the Gerrit Review check gerrit/etc/gerrit.config  [gerrit] basePath = /mnt/a/repos canonicalWebUrl = http://example.</description>
+    </item>
+    
+    <item>
+      <title>Multiple Sites on Multiple Hostnames</title>
+      <link>https://devcfei.github.io/blog/apache2/multiple-sites-on-multiple-hostnames/</link>
+      <pubDate>Fri, 14 May 2021 09:36:04 +0800</pubDate>
+      
+      <guid>https://devcfei.github.io/blog/apache2/multiple-sites-on-multiple-hostnames/</guid>
+      <description>Example to setup 2 hosts
+Setup Virtual Host  www - http://www.example.com docs - http://docs.example.com  Setup docs Edit a docs.conf in /etc/apache2/sites-available
+vim /etc/apache2/sites-available/docs.conf Example:
+&amp;lt;VirtualHost *:80&amp;gt; ServerName docs.example.com ServerAdmin webmaster@localhost # The root document DocumentRoot /var/www/docs ErrorLog ${APACHE_LOG_DIR}/error.log CustomLog ${APACHE_LOG_DIR}/access.log combined &amp;lt;/VirtualHost&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>Multiple Sites on Multiple Ports</title>
+      <link>https://devcfei.github.io/blog/apache2/multiple-sites-on-multiple-ports/</link>
+      <pubDate>Fri, 14 May 2021 09:29:53 +0800</pubDate>
+      
+      <guid>https://devcfei.github.io/blog/apache2/multiple-sites-on-multiple-ports/</guid>
+      <description>Example to setup 2 sites on 2 ports
+ 80 - http://www.example.com 8080 - http://www.example.com:8080  Setup 2 ports Edit the /etc/apache2/ports.conf to add port number of Listen
+Listen 80 Listen 8080 Edit the configuration file &amp;lt;VirtualHost *:8080&amp;gt; DocumentRoot /var/www/default &amp;lt;/VirtualHost&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>Disable IP Access</title>
+      <link>https://devcfei.github.io/blog/apache2/disable-ip-access/</link>
+      <pubDate>Fri, 14 May 2021 09:10:47 +0800</pubDate>
+      
+      <guid>https://devcfei.github.io/blog/apache2/disable-ip-access/</guid>
+      <description>Setup www.example.com a2dissite 000-default.conf sudo systemctl reload apache2 cd /etc/apache2/sites-available/ sudo cp 000-default.conf www.example.com.conf Edit www.example.com.conf # Disable IP access &amp;lt;VirtualHost *:80&amp;gt; # ServerName Server Name ServerName 192.168.1.216 DocumentRoot /dev/null Redirect 403 / ErrorLog ${APACHE_LOG_DIR}/error.log CustomLog ${APACHE_LOG_DIR}/access.log combined &amp;lt;/VirtualHost&amp;gt; # www.example.com &amp;lt;VirtualHost *:80&amp;gt; ServerName www.example.com DocumentRoot /var/www/html/www.example.com # Disable log files access &amp;lt;Files ~ &amp;quot;.log&amp;quot;&amp;gt; Order allow,deny Deny from all &amp;lt;/Files&amp;gt; ErrorLog /var/www/html/www.example.com/error.log CustomLog /var/www/html/www.example.com/access.log combined &amp;lt;/VirtualHost&amp;gt; Enable site a2ensite www.</description>
+    </item>
+    
+    <item>
+      <title>Configurate apache2 - basic</title>
+      <link>https://devcfei.github.io/blog/apache2/configuration-basic/</link>
+      <pubDate>Fri, 14 May 2021 09:06:13 +0800</pubDate>
+      
+      <guid>https://devcfei.github.io/blog/apache2/configuration-basic/</guid>
+      <description>Configuration files of Apache2 are in /etc/apache2/
+Basic Configuration There are 2 folders in /etc/apache2 are for basic configuration. The file /etc/apache2/sites-available/000-default.conf is enabled by /etc/apache2/sites-enabled/000-default.conf which is a link file
+├── sites-available │ ├── 000-default.conf │ ├── default-ssl.conf └── sites-enabled └── 000-default.conf -&amp;gt; ../sites-available/000-default.conf In 000-default.conf , set DocumentRoot to the folder where index.html located. The 80 port services for HTTP.
+&amp;lt;VirtualHost *:80&amp;gt; DocumentRoot /var/www/default &amp;lt;/VirtualHost&amp;gt; Once the apache service is started, HTTP server runs in background.</description>
+    </item>
+    
+    <item>
+      <title>Install apache2</title>
+      <link>https://devcfei.github.io/blog/apache2/install/</link>
+      <pubDate>Fri, 14 May 2021 08:28:46 +0800</pubDate>
+      
+      <guid>https://devcfei.github.io/blog/apache2/install/</guid>
+      <description>Introduction to Apache2 in ubuntu
+Install Apache2 from apt sudo apt install apache2 Enable the modules cd /etc/apache2/mods-enabled/ sudo ln -s ../mods-available/proxy.load sudo ln -s ../mods-available/proxy.conf sudo ln -s ../mods-available/proxy_http.load sudo ln -s ../mods-available/proxy_balancer.conf sudo ln -s ../mods-available/proxy_balancer.load sudo ln -s ../mods-available/rewrite.load sudo ln -s ../mods-available/ssl.conf sudo ln -s ../mods-available/ssl.load sudo ln -s ../mods-available/slotmem_shm.load sudo ln -s ../mods-available/socache_shmcb.load Apache2 service sudo systemctl stop apache2 sudo systemctl start apache2 sudo systemctl reload apache2 </description>
+    </item>
+    
+  </channel>
+</rss>
