@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>x86 on devcfei</title>
+    <link>https://devcfei.github.io/tags/x86/</link>
+    <description>Recent content in x86 on devcfei</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 08 Jul 2021 08:05:42 +0800</lastBuildDate><atom:link href="https://devcfei.github.io/tags/x86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bootstrap-x86</title>
+      <link>https://devcfei.github.io/docs/bootstrap-x86/</link>
+      <pubDate>Thu, 08 Jul 2021 08:05:42 +0800</pubDate>
+      
+      <guid>https://devcfei.github.io/docs/bootstrap-x86/</guid>
+      <description>bootstrap for x86 processor.</description>
+    </item>
+    
+    <item>
+      <title>Display VESA</title>
+      <link>https://devcfei.github.io/blog/knowledge/display-vesa/</link>
+      <pubDate>Sat, 15 May 2021 20:27:19 +0800</pubDate>
+      
+      <guid>https://devcfei.github.io/blog/knowledge/display-vesa/</guid>
+      <description>Color Text Mode There 8 pages in the address space B8000h~ BFFFFh It&amp;rsquo;s most popular that the monitor shows the page 0. One page shows 80*25 characters, each character use 2 bytes
+Character layout    Byte Description     0 the ASCII code   1 the control code    Control code    Bit Description     0 Front B   1 Front G   2 Front R   3 Highlight   4 Back B   5 Back G   6 Back R   7 Blink    Underline The Underline is controlled by VGA register 14 and 15.</description>
+    </item>
+    
+    <item>
+      <title>Disk</title>
+      <link>https://devcfei.github.io/blog/knowledge/disk/</link>
+      <pubDate>Sat, 15 May 2021 20:24:40 +0800</pubDate>
+      
+      <guid>https://devcfei.github.io/blog/knowledge/disk/</guid>
+      <description>MBR GPT </description>
+    </item>
+    
+    <item>
+      <title>PC Boot from BIOS</title>
+      <link>https://devcfei.github.io/blog/knowledge/x86-pc-boot-bios/</link>
+      <pubDate>Sat, 15 May 2021 20:02:03 +0800</pubDate>
+      
+      <guid>https://devcfei.github.io/blog/knowledge/x86-pc-boot-bios/</guid>
+      <description>BIOS Boot After BIOS load completed, the memory layout as the following table. If a bootable device found, the BIOS copy the IPL(Initial Program Loader) to 0x7c00 and JMP to 0x7c00.
+The IPL is the MBR(the 1st sector) of a hard disk.
+BIOS Memroy Layout
+   Start End Size Description     0x00000 0x9FFFF 640K Lower 640K RAM   0xA0000 0xBFFFF 128K Video RAM   0xC0000 0xEFFFF 192K Other Device BIOS   0xF0000 0xFFFFF 64K System BIOS    Lower 640K RAM Layout</description>
+    </item>
+    
+  </channel>
+</rss>

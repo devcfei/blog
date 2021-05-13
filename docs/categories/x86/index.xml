@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>x86 on devcfei</title>
+    <link>https://devcfei.github.io/categories/x86/</link>
+    <description>Recent content in x86 on devcfei</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 08 Jul 2021 08:05:42 +0800</lastBuildDate><atom:link href="https://devcfei.github.io/categories/x86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bootstrap-x86</title>
+      <link>https://devcfei.github.io/docs/bootstrap-x86/</link>
+      <pubDate>Thu, 08 Jul 2021 08:05:42 +0800</pubDate>
+      
+      <guid>https://devcfei.github.io/docs/bootstrap-x86/</guid>
+      <description>bootstrap for x86 processor.</description>
+    </item>
+    
+  </channel>
+</rss>
